@@ -323,34 +323,685 @@
 
 // =================================
 
-const students = [
-  { name: "Манго", score: 83, courses: ["математика", "фізика"] },
-  { name: "Полі", score: 59, courses: ["інформатика", "математика"] },
-  { name: "Аякс", score: 37, courses: ["фізика", "біологія"] },
-  { name: "Ківі", score: 94, courses: ["література", "інформатика"] },
-];
+// const students = [
+//   { name: "Манго", score: 83, courses: ["математика", "фізика"] },
+//   { name: "Полі", score: 59, courses: ["інформатика", "математика"] },
+//   { name: "Аякс", score: 37, courses: ["фізика", "біологія"] },
+//   { name: "Ківі", score: 94, courses: ["література", "інформатика"] },
+// ];
 
-// let sortedArr = [...students]
-//   .sort((a, b) => a.score - b.score)
-//   .map((student) => student.name);
-// console.log(sortedArr);
+// // let sortedArr = [...students]
+// //   .sort((a, b) => a.score - b.score)
+// //   .map((student) => student.name);
+// // console.log(sortedArr);
 
-[
-  "математика",
-  "фізика",
-  "інформатика",
-  "математика",
-  "фізика",
-  "біологія",
-  "література",
-  "інформатика",
-];
+// [
+//   "математика",
+//   "фізика",
+//   "інформатика",
+//   "математика",
+//   "фізика",
+//   "біологія",
+//   "література",
+//   "інформатика",
+// ];
 
-let arrayOfUniqueSubjects = students
-  .flatMap((student) => student.courses)
-  .filter((subject, index, array) => array.indexOf(subject) === index)
-  .sort((firstSubject, secondSubject) =>
-    firstSubject.localeCompare(secondSubject)
+// let arrayOfUniqueSubjects = students
+//   .flatMap((student) => student.courses)
+//   .filter((subject, index, array) => array.indexOf(subject) === index)
+//   .sort((firstSubject, secondSubject) =>
+//     firstSubject.localeCompare(secondSubject)
+//   );
+
+// console.log(arrayOfUniqueSubjects);
+
+// =========================================
+
+// /*
+//  * Напишіть ф-цію calcTotalPrice(array, stoneName), яка приймає масив об'єктів та рядок з назвою каменю. Ф-ція рахує і повертає загальну вартість каміння з таким ім'ям, ціною та кількістю з об'єкта
+//  */
+
+// const stones = [
+//   { name: "Изумруд", price: 1300, quantity: 4 },
+//   { name: "Бриллиант", price: 2700, quantity: 6 },
+//   { name: "Сапфир", price: 400, quantity: 7 },
+//   { name: "Щебень", price: 150, quantity: 100 },
+// ];
+
+// function calcTotalPrice(array, stoneName) {
+//   for (let stone of array) {
+//     if (stone.name === stoneName) {
+//       return stone.price * stone.quantity;
+//     }
+//   }
+//   return "Not found";
+// }
+
+// console.log(calcTotalPrice(stones, "Щебень"));
+
+// =================================
+// Опис завдання: Напишіть функцію, яка повертає вкладений масив виду `[[key, value], [key, value]]`.
+// Очікуваний результат: ({ a: 1, b: 2 }) => [['a', 1], ['b', 2]]
+
+// const data = { a: 1, b: 2 };
+
+// // function makePairs(obj) {
+// //   return Object.entries(obj);
+// // }
+
+// function makePairs(obj) {
+//   const newArr = [];
+
+//   const keys = Object.keys(obj);
+
+//   for (let key of keys) {
+//     // const childArr = [];
+//     // childArr.push(key, obj[key]);
+
+//     newArr.push([key, obj[key]]);
+//   }
+//   return newArr;
+// }
+
+// console.log(makePairs(data)); // [['a', 1], ['b', 2]]
+
+// ================================================
+
+// const filter = function (array, test) {
+//   let newArray = [];
+
+//   for (let arg of array) {
+//     console.log(arg);
+//     if (test(arg)) {
+//       newArray.push(arg);
+//     }
+//   }
+
+//   return newArray;
+// };
+
+// const array1 = [2, 3, 4, 2, 5, 6, 7];
+
+// const callback = function (value) {
+//   return value > 3;
+// };
+// const callback2 = function (value) {
+//   return value < 3;
+// };
+
+// console.log(filter(array1, callback));
+// console.log(filter(array1, callback2));
+
+// const fruits = [
+//   { name: "apples", quantity: 200, isFresh: true },
+//   { name: "grapes", quantity: 150, isFresh: false },
+//   { name: "bananas", quantity: 100, isFresh: true },
+// ];
+
+// const callback3 = function (fruit) {
+//   return fruit.quantity >= 150;
+// };
+
+// console.log(filter(fruits, callback3));
+
+// ==================================================
+
+// const makeSheff = function (name) {
+//   const makeDish = function (dish) {
+//     return `${name} make ${dish}`;
+//   };
+
+//   return makeDish;
+// };
+
+// const mango = makeSheff("Mango");
+// const kiwi = makeSheff("Kiwi");
+// console.log(mango("potato"));
+// console.log(kiwi("salad"));
+
+// ==============================================
+
+// const rounder = function (places) {
+//   return function (number) {
+//     return Number(number.toFixed(places));
+//   };
+// };s
+
+// const rounder1 = rounder(2);
+
+// console.log(rounder1(3.5674));
+
+// =======================================
+
+// const myLibFactory = function () {
+//   let value = 10;
+
+//   return {
+//     add(num) {
+//       return (value += num);
+//     },
+//     getValue() {
+//       return value;
+//     },
+//   };
+// };
+
+// const myLib = myLibFactory();
+// console.log(myLib.add(5));
+
+// ======================================
+
+// const salaryManagerFactory = function (employeeName, baseSalary = 0) {
+//   let salary = baseSalary;
+
+//   return {
+//     raise(amount) {
+//       return (salary += amount);
+//     },
+//     lower(amount) {
+//       return (salary += amount);
+//     },
+//     current() {
+//       return `Current salary ${employeeName} is ${salary}`;
+//     },
+//   };
+// };
+
+// const salary = salaryManagerFactory("Mango", 5000);
+// console.log(salary.raise(3000));
+
+// ==================================
+
+// const arr = [4, 6, 7, 7, 8, 9, 8, 1, 2];
+
+// let newArr = arr.sort((a, b) => a - b);
+
+// console.log(newArr);
+
+// const doMath = function (a, b, test) {
+//   let result = test(a, b);
+//   return result;
+// };
+
+// const add = function (x, y) {
+//   return x + y;
+// };
+
+// const mult = function (x, y) {
+//   return x * y;
+// };
+
+// console.log(doMath(5, 10, mult));
+
+// =================================
+// function centuryFromYear(year) {
+//   let centuryCount = 0;
+//   while (year > 0) {
+//     year = year - 100;
+
+//     centuryCount = centuryCount + 1;
+//   }
+//   return centuryCount;
+// }
+
+// centuryFromYear(1835);
+// ==================================
+
+// function evenOrOdd(number) {
+//   if (number % 2 === 0) {
+//     return "Even";
+//   } else {
+//     return "Odd";
+//   }
+// }
+
+// console.log(evenOrOdd(7));
+
+// ===================================
+
+// function getCount(str) {
+//   let newStr = "";
+
+//   for (let i = 0; i < str.length; i += 1) {
+//     if (
+//       str[i] === "a" ||
+//       str[i] === "e" ||
+//       str[i] === "i" ||
+//       str[i] === "o" ||
+//       str[i] === "u"
+//     ) {
+//       newStr += str[i];
+//     }
+//   }
+
+//   return newStr.length;
+// }
+
+// console.log(getCount("abracadabra"));
+
+// ==============================================
+
+// const objA = {
+//   x: 6,
+//   showX() {
+//     console.log(this.x);
+
+//     const objB = {
+//       y: 10,
+//       showY() {
+//         console.log(this.y, this);
+//       },
+//     };
+
+//     objB.showY();
+//   },
+// };
+
+// objA.showX();
+
+// =============================================
+
+// const array1 = [1, 2, 3, 4, 5];
+
+// const newArray = array1.map((el, index, array) => el * 2);
+// console.log(newArray);
+
+// =========================================
+
+// const players = [
+//   { id: "player-1", name: "Mango", points: 54 },
+//   { id: "player-2", name: "Poly", points: 28 },
+//   { id: "player-3", name: "Kiwi", points: 98 },
+//   { id: "player-4", name: "Ajax", points: 37 },
+// ];
+
+// const newPlayesrArr = players.map((player) =>
+//   player.id === "player-3" ? { ...player, points: player.points + 20 } : player
+// );
+
+// console.log(newPlayesrArr);
+// console.log(players);
+
+// ===================================
+// const array = [1, 2, 3, 4, 5];
+
+// const filteredArr = array.filter((el) => el > 2);
+// console.log(filteredArr);
+
+// ===================================
+
+// const players = [
+//   { id: "player-1", name: "Mango", points: 54, online: true },
+//   { id: "player-2", name: "Poly", points: 28, online: true },
+//   { id: "player-3", name: "Kiwi", points: 98, online: false },
+//   { id: "player-4", name: "Ajax", points: 37, online: false },
+// ];
+
+// const filteredPlayers = players.filter((player) => (player.name = "Kaka"));
+
+// console.log(players);
+
+// =================================
+
+// const array = [1, 2, 3, 3, 4, 5, 1];
+
+// const filteredArr = array.filter(
+//   (el, index, array) => array.indexOf(el) === index
+// );
+// console.log(filteredArr);
+
+// =====================================
+
+// const players = [
+//   { id: "player-1", name: "Mango", points: 54, online: true },
+//   { id: "player-2", name: "Poly", points: 28, online: true },
+//   { id: "player-3", name: "Kiwi", points: 98, online: false },
+//   { id: "player-4", name: "Ajax", points: 37, online: false },
+// ];
+
+// const find = (players, playerId) => players.find(({ id }) => id === playerId);
+
+// console.log(find(players, "player-4"));
+
+// =====================================
+
+// const numbers = [5, 10, 15, 20, 13];
+
+// const totalSum = numbers.reduce((total, num) => {
+//   return total + num;
+// }, 0);
+
+// console.log(totalSum);
+
+// ======================================
+
+// const salary = {
+//   mango: 100,
+//   poly: 50,
+//   ajax: 150,
+// };
+
+// const totalSalary = Object.values(salary).reduce(
+//   (total, salary) => total + salary,
+//   0
+// );
+// console.log(totalSalary);
+
+// =========================================
+
+// const players = [
+//   { id: "player-1", name: "Mango", timeOlayed: 310, points: 54, online: true },
+//   { id: "player-2", name: "Poly", timeOlayed: 470, points: 28, online: true },
+//   { id: "player-3", name: "Kiwi", timeOlayed: 150, points: 98, online: false },
+//   { id: "player-4", name: "Ajax", timeOlayed: 220, points: 37, online: false },
+// ];
+
+// const totalTime = players.reduce(
+//   (total, { timeOlayed }) => total + timeOlayed,
+//   0
+// );
+
+// console.log(totalTime);
+
+// ==========================================
+
+// const cart = [
+//   { label: "Apples", price: 100, quantity: 2 },
+//   { label: "Bananas", price: 120, quantity: 3 },
+//   { label: "Lemons", price: 70, quantity: 4 },
+// ];
+
+// const totalSum = cart.reduce(
+//   (totalSum, { price, quantity }) => totalSum + price * quantity,
+//   0
+// );
+
+// console.log(totalSum);
+
+// =========================================!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// const tweets = [
+//   { id: "000", likes: 5, tags: ["js", "nodejs"] },
+//   { id: "001", likes: 2, tags: ["html", "css"] },
+//   { id: "002", likes: 17, tags: ["css", "react"] },
+//   { id: "003", likes: 5, tags: ["js", "nodejs", "java"] },
+// ];
+
+// const newArr = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+
+// // console.log(newArr);
+
+// const newObj = newArr.reduce(
+//   (acc, tag) => ({ ...acc, [tag]: acc[tag] ? (acc[tag] += 1) : 1 }),
+//   {}
+// );
+// console.log(newObj);
+
+// ===========================================
+
+// const pizzaPalace = {
+//   pizzas: ["Ultracheese", "Smoked", "Four meats"],
+//   order(pizzaName, onSuccess, onError) {
+//     for (let pizza of this.pizzas) {
+//       if (pizza === pizzaName) {
+//         return makePizza(pizzaName);
+//       }
+//     }
+
+//     return onOrderError(pizzaName);
+//   },
+// };
+// // Change code above this line
+
+// // Callback for onSuccess
+// function makePizza(pizzaName) {
+//   return `Your order is accepted. Cooking pizza ${pizzaName}.`;
+// }
+
+// // Callback for onError
+// function onOrderError(error) {
+//   return `Error! ${error}`;
+// }
+
+// // Method calls with callbacks
+// console.log(pizzaPalace.order("kaka", makePizza, onOrderError));
+// pizzaPalace.order("Four meats", makePizza, onOrderError);
+// pizzaPalace.order("Big Mike", makePizza, onOrderError);
+// pizzaPalace.order("Vienna", makePizza, onOrderError);
+
+// ===========================
+
+// const array = [2, 5, 7, 2, 33, 1, 13];
+
+// array.sort();
+
+// const sortedArray = array.sort((a, b) => a - b);
+// console.log(sortedArray);
+
+// ===================================
+
+// const players = [
+//   { id: "player-1", name: "Mango", timeOlayed: 310, points: 54, online: true },
+//   { id: "player-2", name: "Poly", timeOlayed: 470, points: 28, online: true },
+//   { id: "player-3", name: "Kiwi", timeOlayed: 150, points: 98, online: false },
+//   { id: "player-4", name: "Ajax", timeOlayed: 220, points: 37, online: false },
+// ];
+
+// // const sortedByTime = [...players].sort(
+// //   ({ timeOlayed: currentTime }, { timeOlayed: nextTime }) =>
+// //     currentTime - nextTime
+// // );
+
+// // console.log(sortedByTime);
+
+// const sortedByName = [...players].sort((currentPlayer, nextPlayer) =>
+//   currentPlayer.name[0].localeCompare(nextPlayer.name[0])
+// );
+
+// console.log(sortedByName);
+
+// ==================================
+
+// const arr = [34, [3, [24]], 12, 14];
+
+// const newArr = arr.flat(2);
+// console.log(arr);
+// console.log(newArr);
+
+// =================================
+
+// const numbers = [1, 5, 2, 4, 3, 15, 13, 22, 45];
+
+// const newArr = numbers
+//   .map((num) => num * 2)
+//   .filter((num) => num > 10)
+//   .sort((a, b) => a - b);
+
+// console.log(newArr);
+
+// ================================
+
+// const players = [
+//   { id: "id-1", tag: "Mango", isOline: true, rank: 800 },
+//   { id: "id-2", tag: "Poly", isOline: false, rank: 600 },
+//   { id: "id-3", tag: "Ajax", isOline: true, rank: 100 },
+//   { id: "id-4", tag: "Kiwi", isOline: true, rank: 400 },
+// ];
+
+// const sortedPlayers = players
+//   .filter(({ isOline }) => isOline)
+//   .sort(
+//     ({ rank: rankOfCurrentPlayer }, { rank: rankOfNextPlayer }) =>
+//       rankOfCurrentPlayer - rankOfNextPlayer
+//   );
+
+// console.log(sortedPlayers);
+
+// =====================================
+
+// function changeEven(numbers, value) {
+//   const newArr = [];
+
+//   numbers.forEach((el) => {
+//     if (el % 2 === 0) {
+//       newArr.push(el + value);
+//     } else {
+//       newArr.push(el);
+//     }
+
+//     return newArr;
+//   });
+
+//   return newArr;
+// }
+
+// console.log(changeEven([1, 2, 3, 4, 5], 10));
+
+// console.log(changeEven([44, 13, 81, 92, 36, 54], 100));
+
+// =================================
+
+// const players = [
+//   { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+//   { name: "Poly", playtime: 469, gamesPlayed: 2 },
+//   { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+//   { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+// ];
+// // Change code below this line
+
+// const totalAveragePlaytimePerGame = players.reduce((acc, player) => {
+//   const totalTimeOnegame = player.playtime / player.gamesPlayed;
+//   console.log(totalTimeOnegame);
+
+//   return acc + totalTimeOnegame;
+// }, 0);
+
+// console.log(totalAveragePlaytimePerGame);
+
+// ==================================================
+
+// const books = [
+//   {
+//     title: "The Last Kingdom",
+//     author: "Bernard Cornwell",
+//     rating: 8.38,
+//   },
+//   {
+//     title: "Beside Still Waters",
+//     author: "Robert Sheckley",
+//     rating: 8.51,
+//   },
+//   {
+//     title: "The Dream of a Ridiculous Man",
+//     author: "Fyodor Dostoevsky",
+//     rating: 7.75,
+//   },
+//   { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+//   {
+//     title: "The Dreams in the Witch House",
+//     author: "Howard Lovecraft",
+//     rating: 8.67,
+//   },
+// ];
+// const MIN_BOOK_RATING = 8;
+// // Change code below this line
+
+// const names = books
+//   .filter((book) => book.rating > MIN_BOOK_RATING)
+//   .map((book) => book.author)
+//   .sort((a, b) => a.localeCompare(b));
+
+// console.log(names);
+
+// ======================================
+
+// const users = [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     gender: "male",
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     gender: "female",
+//   },
+//   {
+//     name: "Ross Vazquez",
+//     email: "rossvazquez@xinware.com",
+//     eyeColor: "green",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     isActive: false,
+//     balance: 3793,
+//     gender: "male",
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     gender: "female",
+//   },
+//   {
+//     name: "Carey Barr",
+//     email: "careybarr@nurali.com",
+//     eyeColor: "blue",
+//     friends: ["Jordan Sampson", "Eddie Strong", "Adrian Cross"],
+//     isActive: true,
+//     balance: 3951,
+//     gender: "male",
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     email: "blackburndotson@furnigeer.com",
+//     eyeColor: "brown",
+//     friends: [
+//       "Jacklyn Lucas",
+//       "Linda Chapman",
+//       "Adrian Cross",
+//       "Solomon Fokes",
+//     ],
+//     isActive: false,
+//     balance: 1498,
+//     gender: "male",
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     email: "shereeanthony@kog.com",
+//     eyeColor: "brown",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     isActive: true,
+//     balance: 2764,
+//     gender: "female",
+//   },
+// ];
+
+// const getSortedFriends = (users) => {
+//   const arr = users
+//     .flatMap((user) => user.friends)
+//     .filter((friend, index, array) => array.indexOf(friend) === index)
+//     .sort((a, b) => a.localeCompare(b));
+
+//   return arr;
+// };
+
+// console.log(getSortedFriends(users));
+
+function betterThanAverage(classPoints, yourPoints) {
+  return (
+    yourPoints >
+    classPoints.reduce((acc, num) => acc + num, 0) / classPoints.length
   );
+}
 
-console.log(arrayOfUniqueSubjects);
+console.log(betterThanAverage([2, 3], 5));
