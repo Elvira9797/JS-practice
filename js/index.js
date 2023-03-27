@@ -1,3 +1,10 @@
+let min = 10;
+// let max = 100;
+
+// let num = Math.round(Math.random() * (max - min) + min);
+
+// console.log(num);
+
 // // ========================================
 // /*
 //  * Типів транзакцій всього два.
@@ -997,11 +1004,701 @@
 
 // console.log(getSortedFriends(users));
 
-function betterThanAverage(classPoints, yourPoints) {
-  return (
-    yourPoints >
-    classPoints.reduce((acc, num) => acc + num, 0) / classPoints.length
-  );
+// ========================================
+
+// function betterThanAverage(classPoints, yourPoints) {
+//   return (
+//     yourPoints >
+//     classPoints.reduce((acc, num) => acc + num, 0) / classPoints.length
+//   );
+// }
+
+// console.log(betterThanAverage([2, 3], 5));
+
+// ===========================================
+
+// const user = {
+//   minAge: 18,
+//   maxAge: 27,
+//   canJoin(user) {
+//     return user.age >= this.minAge && user.age < this.maxAge;
+//   },
+// };
+
+// const users = [{ age: 17 }, { age: 20 }, { age: 23 }, { age: 30 }];
+
+// console.log(user.canJoin);
+
+// const soldiers = users.filter((el) => user.canJoin(el));
+
+// console.log(soldiers);
+
+// ==============================================
+
+// const camelize = (str) => {
+//   let array = str
+//     .split("-")
+//     .map((word, index) =>
+//       index === 0 ? word : `${word[0].toUpperCase()}${word.slice(1)}`
+//     )
+//     .join("");
+
+//   return array;
+// };
+
+// console.log(camelize("background-color"));
+// camelize("list-style-image");
+// camelize("-webkit-transition");
+
+// ========================
+// let arr = [5, 3, 8, 2, 99, 4, 15];
+
+// function filterRange(arr, a, b) {
+//   arr.forEach((element, index) => {
+//     if (element < a || element > b) {
+//       arr.splice(index, 1);
+//     }
+//   });
+// }
+
+// filterRange(arr, 1, 4);
+// console.log(arr);
+
+// ============================
+
+// let arr = [5, 2, 1, -10, 8];
+
+// arr.sort((a, b) => b - a);
+
+// console.log(arr);
+
+// =================================
+
+// let arr = ["HTML", "JavaScript", "CSS"];
+
+// let sorted = (arr) => {
+//   const array = [...arr].sort((currentWord, nextWord) =>
+//     currentWord.localeCompare(nextWord)
+//   );
+//   return array;
+// };
+
+// console.log(sorted(arr)); // CSS, HTML, JavaScript
+// console.log(arr); // HTML, JavaScript, CSS (без змін)
+
+// ==================================
+
+// let ivan = { name: "Іван", age: 25 };
+// let petro = { name: "Петро", age: 30 };
+// let mariya = { name: "Марія", age: 28 };
+
+// let users = [ivan, petro, mariya];
+
+// const arrOfNames = users.map((user) => user.name);
+
+// console.log(arrOfNames);
+
+// =======================================
+
+// let ivan = { name: "Іван", surname: "Іванко", id: 1 };
+// let petro = { name: "Петро", surname: "Петренко", id: 2 };
+// let mariya = { name: "Марія", surname: "Мрійко", id: 3 };
+
+// let users = [ivan, petro, mariya];
+
+// let usersMapped = users.map((user) => ({
+//   fullName: user.name + " " + user.surname,
+//   id: user.id,
+// }));
+
+// console.log(usersMapped);
+
+// =========================================
+
+// let ivan = { name: "Іван", age: 25 };
+// let petro = { name: "Петро", age: 30 };
+// let mariya = { name: "Марія", age: 28 };
+
+// let arr = [petro, ivan, mariya];
+
+// const sortByAge = (arr) => {
+//   arr.sort((a, b) => a.age - b.age);
+// };
+
+// sortByAge(arr);
+
+// console.log(arr);
+
+// ====================================
+
+// let min = 10;
+// let max = 100;
+
+// let num = Math.round(Math.random() * (max - min) + min);
+
+// console.log(num);
+
+// ====================================
+
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 29 };
+
+// let arr = [john, pete, mary];
+
+// const getAverageAge = (array) => {
+//   const averageAge = array.reduce((acc, user) => acc + user.age, 0);
+
+//   return averageAge / array.length;
+// };
+
+// console.log(getAverageAge(arr));
+
+// ====================================
+
+// function unique(arr) {
+//   const uniqueArr = arr.filter(
+//     (el, index, array) => array.indexOf(el) === index
+//   );
+
+//   return uniqueArr;
+// }
+
+// let strings = [
+//   "Привіт",
+//   "Світ",
+//   "Привіт",
+//   "Світ",
+//   "Привіт",
+//   "Привіт",
+//   "Світ",
+//   "Світ",
+//   ":-O",
+// ];
+
+// console.log(unique(strings));
+
+// =============================================
+
+// let users = [
+//   { id: "іван", name: "Іван Іванко", age: 20 },
+//   { id: "ганна", name: "Ганна Іванко", age: 24 },
+//   { id: "петро", name: "Петро Петренко", age: 31 },
+// ];
+
+// const groupById = (users) => {
+//   const newObj = users.reduce((acc, user) => {
+//     return {
+//       ...acc,
+//       [user.id]: user,
+//     };
+//   }, {});
+
+//   return newObj;
+// };
+
+// let usersById = groupById(users);
+// console.log(usersById);
+
+// ===========================================
+
+// const camelize = (str) => {
+//   const newStr = str
+//     .split("-")
+//     .map((word, index) =>
+//       index === 0 ? word : word[0].toUpperCase() + word.slice(1)
+//     )
+//     .join("");
+
+//   return newStr;
+// };
+
+// console.log(camelize("background-color"));
+
+// ===========================================
+
+// let arr = [5, 3, 8, 1];
+
+// const filterRange = (arr, a, b) => {
+//   const newArr = arr.filter((num) => num >= a && num <= b);
+
+//   return newArr;
+// };
+
+// let filtered = filterRange(arr, 1, 4);
+// console.log(filtered);
+
+// ============================================
+
+// const arr = [1, 2, 3, 4, 5];
+
+// function multiply(arr, n) {
+//   if (n <= 0) {
+//     return 1;
+//   } else {
+//     return multiply(arr, n - 1) * arr[n - 1];
+//   }
+// }
+// console.log(multiply(arr, 5));
+
+// ==================================
+
+// function pow(x, n) {
+//   if (n == 1) {
+//     return x;
+//   } else {
+//     console.log(n);
+//     return x * pow(x, n - 1);
+//   }
+// }
+
+// pow(2, 3);
+// console.log(pow(2, 3)); // 8
+
+// ====================================
+
+// const customer = {
+//   firstName: "Jacob",
+//   lastName: "Mercer",
+//   getFullName() {
+//     console.log(`${this.firstName} ${this.lastName}`);
+//   },
+// };
+
+// // function makeMessage(callback) {
+// //   console.log(callback);
+// //   // callback() - це виклик методу getFullName без об'єкта
+// //   console.log(`Обробляємо заявку від ${callback()}.`);
+// // }
+
+// customer.getFullName();
+
+// const showThis = () => {
+//   console.log("this in showThis: ", this);
+// };
+
+// showThis(); // this in showThis: window
+
+// =======================================
+
+// function multiply(arr, n) {
+//   if (n <= 0) {
+//     return 1;
+//   } else {
+//     return multiply(arr, n - 1) * arr[n - 1];
+//   }
+// }
+
+// console.log(multiply([1, 2, 3, 4, 5, 6], 3));
+
+// =========================================
+
+// Налаштування
+// const contacts = [
+//   {
+//     firstName: "Akira",
+//     lastName: "Laine",
+//     number: "0543236543",
+//     likes: ["Pizza", "Coding", "Brownie Points"],
+//   },
+//   {
+//     firstName: "Harry",
+//     lastName: "Potter",
+//     number: "0994372684",
+//     likes: ["Hogwarts", "Magic", "Hagrid"],
+//   },
+//   {
+//     firstName: "Sherlock",
+//     lastName: "Holmes",
+//     number: "0487345643",
+//     likes: ["Intriguing Cases", "Violin"],
+//   },
+//   {
+//     firstName: "Kristian",
+//     lastName: "Vos",
+//     number: "unknown",
+//     likes: ["JavaScript", "Gaming", "Foxes"],
+//   },
+// ];
+
+// function lookUpProfile(name, prop) {
+//   for (let contact of contacts) {
+//     if (name === contact.firstName) {
+//       if (contact.hasOwnProperty(prop)) {
+//         return contact[prop];
+//       } else {
+//         return "No such property";
+//       }
+//     }
+//   }
+//   return "No such contact";
+// }
+
+// console.log(lookUpProfile("Harry", "likes"));
+
+// ===========================РЕКУРСІЯ=================
+
+// function countdown(startNum, endNum) {
+//   if (endNum < startNum) {
+//     return [];
+//   } else {
+//     const countArray = countdown(startNum, endNum - 1);
+//     countArray.push(endNum);
+//     return countArray;
+//   }
+// }
+
+// console.log(countdown(5, 10));
+
+// ================================================
+
+// function greetGuest(greeting) {
+//   console.log(`${greeting}, ${this.username}.`);
+// }
+
+// const mango = {
+//   username: "Mango",
+// };
+
+// greetGuest.apply(mango, ["Hello"]);
+
+// ==========================================
+
+// function greet(clientName) {
+//   return `${clientName}, ласкаво просимо в «${this.service}».`;
+// }
+
+// const steam = {
+//   service: "Steam",
+// };
+
+// const steamGreater = greet.bind(steam);
+
+// console.log(steamGreater("Poli"));
+
+// ==========================================
+
+// const customer = {
+//   firstName: "Jacob",
+//   lastName: "Mercer",
+//   showThis() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
+
+// const makeMessage = (callback) => {
+//   // callback() - це виклик методу getFullName без об'єкта
+//   console.log(`Обробляємо заявку від ${callback()}.`);
+// };
+
+// const newMeth = customer.showThis.bind(customer);
+
+// makeMessage(newMeth);
+
+// ====================================
+
+// function sayHi(greeting) {
+//   console.log(`${this.name}, ${greeting}`);
+// }
+
+// const poli = {
+//   name: "Poli",
+// };
+
+// sayHi.apply(poli, ["hello", "my World"]);
+
+// ========================================
+
+// const customer = {
+//   firstName: "Jacob",
+//   lastName: "Mercer",
+//   getFullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   },
+// };
+
+// function makeMessage(callback) {
+//   // callback() - це виклик методу getFullName без об'єкта
+//   console.log(`Обробляємо заявку від ${callback()}.`);
+// }
+
+// const callback1 = customer.getFullName.bind(customer);
+// makeMessage(customer.getFullName.bind(customer));
+
+// ============================================
+
+// const korol = {
+//   live: 67,
+// };
+
+// const animal = Object.create(korol);
+
+// animal.legs = 4;
+// const dog = Object.create(animal);
+// dog.name = "Манго";
+
+// console.log(dog); // { name: 'Манго', __proto__: animal }
+// console.log(animal.isPrototypeOf(dog)); // true
+
+// ===============================
+
+// class User {
+//   #email;
+
+//   constructor(name, email) {
+//     this.name = name;
+//     this.#email = email;
+//   }
+
+//   // Геттер email
+//   get email() {
+//     return this.#email;
+//   }
+
+//   // Сеттер email
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
+
+// const mango = new User("Mango", "mango97@gmail.com");
+
+// console.log(mango.email);
+
+// =====================================
+
+// class User {
+//   // Оголошення та ініціалізація статичної властивості
+//   static Roles = {
+//     ADMIN: "admin",
+//     EDITOR: "editor",
+//   };
+
+//   #email;
+//   #role;
+
+//   constructor({ email, role }) {
+//     this.#email = email;
+//     this.#role = role;
+//   }
+
+//   get role() {
+//     return this.#role;
+//   }
+
+//   set role(newRole) {
+//     this.#role = newRole;
+//   }
+// }
+
+// const mango = new User({
+//   email: "mango@mail.com",
+//   role: User.Roles.ADMIN,
+// });
+
+// console.log(User.Roles);
+
+// console.log(mango.Roles); // undefined
+// console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
+
+// console.log(mango.role); // "admin"
+// mango.role = User.Roles.EDITOR;
+// console.log(mango.role); // "editor
+
+// ======================================
+
+// class User {
+//   #email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   // get email() {
+//   //   return this.#email;
+//   // }
+
+//   // set email(newEmail) {
+//   //   this.#email = newEmail;
+//   // }
+// }
+
+// class ContentEditor extends User {
+//   // Тіло класу ContentEditor
+// }
+
+// const editor = new ContentEditor("mango@mail.com");
+// console.log(editor); // { email: "mango@mail.com" }
+// console.log(editor.email);
+
+// ====================================
+
+// class User {
+//   #email;
+//   constructor(email) {
+//     this.#email = email;
+//   }
+
+//   get email() {
+//     return this.#email;
+//   }
+
+//   set email(newEmail) {
+//     return (this.#email = newEmail);
+//   }
+// }
+
+// class ContentEditor extends User {
+//   constructor({ email, posts }) {
+//     super(email);
+//     this.posts = posts;
+//   }
+
+//   addPost(post) {
+//     return this.posts.push(post);
+//   }
+// }
+
+// const editor = new ContentEditor({ email: "editor@gmail.com", posts: [] });
+
+// console.log(editor.posts);
+
+// editor.addPost("hello everyone");
+// console.log(editor.posts);
+
+// ==============================================
+
+// class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   }
+
+//   getItems() {
+//     return this.items;
+//   }
+
+//   addItem(newItem) {
+//     return this.items.push(newItem);
+//   }
+
+//   removeItem(itemToRemove) {
+//     return this.items.forE((item, index) => {
+//       if (item === itemToRemove) {
+//         return this.items.splice(index, 1);
+//       }
+//     });
+//   }
+// }
+
+// // Change code above this line
+// const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+// storage.addItem("Droid");
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// storage.removeItem("Prolonger");
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+// ====================================
+
+// class StringBuilder {
+//   constructor(initialValue) {
+//     this.value = initialValue;
+//   }
+
+//   getValue() {
+//     return this.value;
+//   }
+
+//   padEnd(str) {
+//     return (this.value += str);
+//   }
+
+//   padStart(str) {
+//     return (this.value = str + this.value);
+//   }
+
+//   padBoth(str) {
+//     return (this.value = str + this.value + str);
+//   }
+// }
+
+// // Change code above this line
+// const builder = new StringBuilder(".");
+// console.log(builder.getValue()); // "."
+// builder.padStart("^");
+// console.log(builder.getValue()); // "^."
+// builder.padEnd("^");
+// console.log(builder.getValue()); // "^.^"
+// builder.padBoth("=");
+// console.log(builder.getValue()); // "=^.^="
+
+// =============================================
+
+// class User {
+//   // Оголошення та ініціалізація статичної властивості
+
+//   static Roles = {
+//     ADMIN: "admin",
+//     EDITOR: "editor",
+//   };
+
+//   #email;
+//   #role;
+
+//   constructor({ email, role }) {
+//     this.#email = email;
+//     this.#role = role;
+//   }
+
+//   get role() {
+//     return this.#role;
+//   }
+
+//   set role(newRole) {
+//     this.#role = newRole;
+//   }
+// }
+
+// const mango = new User({
+//   email: "mango@mail.com",
+//   role: User.Roles.ADMIN,
+// });
+
+// console.log(mango.Roles); // undefined
+// console.log(User.Roles); // { ADMIN: "admin", EDITOR: "editor" }
+
+// console.log(mango.role); // "admin"
+// mango.role = User.Roles.EDITOR;
+// console.log(mango.role); // "editor"
+
+// ========================================
+class Car {
+  // Change code below this line
+  static MAX_PRICE = 50000;
+
+  #price;
+
+  constructor({ price }) {
+    this.#price = price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    if (newPrice <= Car.Price.MAX_PRICE) {
+      return (this.#price = newPrice);
+    }
+  }
+  // Change code above this line
 }
 
-console.log(betterThanAverage([2, 3], 5));
+const audi = new Car({ price: 35000 });
+console.log(audi.price); // 35000
+
+audi.price = 49000;
+console.log(audi.price); // 49000
+
+audi.price = 51000;
+console.log(audi.price); // 49000
