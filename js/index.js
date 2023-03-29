@@ -1672,33 +1672,358 @@ let min = 10;
 // console.log(mango.role); // "editor"
 
 // ========================================
-class Car {
-  // Change code below this line
-  static MAX_PRICE = 50000;
+// class Car {
+//   // Change code below this line
+//   static MAX_PRICE = 50000;
 
-  #price;
+//   #price;
 
-  constructor({ price }) {
-    this.#price = price;
-  }
+//   constructor({ price }) {
+//     this.#price = price;
+//   }
 
-  get price() {
-    return this.#price;
-  }
+//   get price() {
+//     return this.#price;
+//   }
 
-  set price(newPrice) {
-    if (newPrice <= Car.Price.MAX_PRICE) {
-      return (this.#price = newPrice);
-    }
-  }
-  // Change code above this line
+//   set price(newPrice) {
+//     if (newPrice <= Car.Price.MAX_PRICE) {
+//       return (this.#price = newPrice);
+//     }
+//   }
+//   // Change code above this line
+// }
+
+// const audi = new Car({ price: 35000 });
+// console.log(audi.price); // 35000
+
+// audi.price = 49000;
+// console.log(audi.price); // 49000
+
+// audi.price = 51000;
+// console.log(audi.price); // 49000
+
+// ===========================================
+
+// /*
+//  * Типів транзакцій всього два.
+//  * Можна покласти чи зняти гроші з рахунку.
+//  */
+// const Transaction = {
+//   DEPOSIT: "deposit",
+//   WITHDRAW: "withdraw",
+// };
+
+// /*
+//  * Кожна транзакція це об'єкт із властивостями: id, type та amount
+//  */
+
+// const account = {
+//   // Поточний баланс рахунку
+//   balance: 0,
+
+//   // Історія транзакцій
+//   transactions: [],
+
+//   /*
+//    * Метод створює та повертає об'єкт транзакції.
+//    * Приймає суму та тип транзакції.
+//    */
+//   createTransaction(amount, type) {
+//     return {
+//       amount,
+//       type,
+//       id: this.transactions.length,
+//     };
+//   },
+
+//   /*
+//    * Метод, що відповідає за додавання суми до балансу.
+//    * Приймає суму транзакції.
+//    * Викликає createTransaction для створення об'єкта транзакції
+//    * після чого додає його до історії транзакцій
+//    */
+//   deposit(amount) {
+//     const transaction = this.createTransaction(amount, Transaction.DEPOSIT);
+//     this.transactions.push(transaction);
+//     this.balance += amount;
+//   },
+
+//   /*
+//    * Метод, що відповідає за зняття суми з балансу.
+//    * Приймає суму транзакції.
+//    * Викликає createTransaction для створення об'єкта транзакції
+//    * після чого додає його до історії транзакцій.
+//    *
+//    * Якщо amount більше ніж поточний баланс, виводь повідомлення
+//    * про те, що зняття такої суми не можливе, недостатньо коштів.
+//    */
+//   withdraw(amount) {
+//     const transaction = this.createTransaction(amount, Transaction.WITHDRAW);
+//     this.transactions.push(transaction);
+//     if (amount > this.balance) {
+//       console.error("Don't enough money");
+//     } else {
+//       this.balance -= amount;
+//     }
+//   },
+
+//   /*
+//    * Метод повертає поточний баланс
+//    */
+//   getBalance() {
+//     return this.balance;
+//   },
+
+//   /*
+//    * Метод шукає та повертає об'єкт транзакції по id
+//    */
+//   getTransactionDetails(id) {
+//     for (let transaction of this.transactions) {
+//       if (transaction.id === id) {
+//         return transaction;
+//       }
+//     }
+//     return "Not exist";
+//   },
+
+//   /*
+//    * Метод повертає кількість коштів
+//    * певного типу транзакції з усієї історії транзакцій
+//    */
+//   getTransactionTotal(type) {
+//     let total = 0;
+//     for (let transaction of this.transactions) {
+//       if (transaction.type === type) {
+//         total += transaction.amount;
+//       }
+//     }
+
+//     return total;
+//   },
+// };
+
+// account.deposit(500);
+// account.deposit(1500);
+// account.deposit(6500);
+// account.withdraw(1500);
+// console.log(account.getTransactionDetails(6));
+
+// console.log(account.getTransactionTotal("deposit"));
+// console.log(account);
+
+// ==========================================
+
+// const createProduct = (obj, callback) => {
+//   callback({ ...obj, id: Date.now() });
+// };
+
+// const logProduct = (product) => {
+//   console.log(product);
+// };
+
+// const logTotalPrice = (product) => {
+//   console.log(product.price * product.quantity);
+// };
+
+// const apple = { name: "Apple", price: 30, quantity: 3 };
+// const lemon = { name: "Lemon", price: 20, quantity: 5 };
+
+// ===============================================
+
+// const TRANSACTION_LIMIT = 1000;
+
+// const account = {
+//   username: "Jacob",
+//   balance: 0,
+//   withdraw(amount, onSuccess, onError) {
+//     if (amount > TRANSACTION_LIMIT) {
+//       onError("Limit exceeded");
+//     } else if (amount > this.balance) {
+//       onError(
+//         `You don't have that much money. Your balance is ${this.balance} `
+//       );
+//     } else {
+//       this.balance -= amount;
+//       onSuccess(`You can take money. Your balance is ${this.balance}`);
+//     }
+//   },
+//   deposit(amount, onSuccess, onError) {
+//     if (amount > TRANSACTION_LIMIT) {
+//       onError("Limit exceeded");
+//     } else {
+//       this.balance += amount;
+//       onSuccess(
+//         `The card has been replenished. You balance is ${this.balance}`
+//       );
+//     }
+//   },
+// };
+
+// function handleSuccess(message) {
+//   console.log(`Success! ${message}`);
+// }
+
+// function handleError(message) {
+//   console.log(`Error! ${message}`);
+// }
+
+// account.deposit(900, handleSuccess, handleError);
+// account.deposit(1000, handleSuccess, handleError);
+// account.withdraw(1000, handleSuccess, handleError);
+// account.withdraw(1000, handleSuccess, handleError);
+
+// ============================================
+
+// class User {
+//   constructor({ name, email }) {
+//     this.name = name;
+//     this.email = email;
+
+//     this.getName = function () {
+//       return this.name;
+//     };
+//   }
+
+//   getEmail() {
+//     return this.email;
+//   }
+
+//   changeEmail(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+
+// const mango = new User({
+//   name: "Манго",
+//   email: "mango@mail.com",
+// });
+
+// console.log(mango);
+
+// ======================================
+
+// const Foo = function (name) {
+//   this.name = name;
+//   this.method1 = function () {
+//     return "Hello";
+//   };
+// };
+
+// Foo.prototype.changeName = function (name) {
+//   this.name = name;
+// };
+
+// const obj = new Foo("Mango");
+
+// obj.changeName("Kaka");
+// console.log(obj);
+
+// ========================================
+
+// function updateLight(current) {
+//   const lights = ["green", "yellow", "red"];
+
+//   for (let i = 0; i < lights.length; i += 1) {
+//     if (lights[i] === current) {
+//       return lights[i + 1];
+//     } else if (current === lights[lights.length - 1]) {
+//       return lights[0];
+//     }
+//   }
+// }
+
+// console.log(updateLight("red"));
+
+// =======================================
+
+// function squareSum(numbers) {
+//   return numbers.map((num) => num ** 2).reduce((acc, num) => acc + num, 0);
+// }
+
+// console.log(squareSum([1, 2]));
+
+// ========================================
+
+// function solution(str) {
+//   const arr = str.split("").reverse().join("");
+//   return arr;
+// }
+
+// console.log(solution("world"));
+
+// ======================================
+
+// function disemvowel(str) {
+//   return str
+//     .split("")
+//     .filter(
+//       (el) =>
+//         el !== "i" &&
+//         el !== "e" &&
+//         el !== "a" &&
+//         el !== "o" &&
+//         el !== "u" &&
+//         el !== "I" &&
+//         el !== "E" &&
+//         el !== "A" &&
+//         el !== "O" &&
+//         el !== "U"
+//     )
+//     .join("");
+// }
+
+// console.log(disemvowel("This website is for losers LOL!"));
+
+// ====================================================
+
+// const User = function ({ name, email } = {}) {
+//   this.name = name;
+//   this.email = email;
+// };
+
+// const mango = new User({ name: "Mango", email: "mango@gmail.com" });
+// console.log(mango);
+
+// User.prototype.changeName = function (newName) {
+//   this.name = newName;
+// };
+
+// mango.changeName("Elvira");
+
+// User.showIt = function (element) {
+//   console.log(element);
+// };
+
+// User.showIt(mango);
+
+// ==================================================
+
+// function getMiddle(s) {
+//   if (s.length % 2 === 0) {
+//     const index = s.length / 2 - 1;
+//     return s.slice(index, index + 2);
+//   } else {
+//     const index = Math.floor(s.length / 2);
+//     return s.slice(index, index + 1);
+//   }
+// }
+
+// console.log(getMiddle("testkiy"));
+
+// ==============================================
+
+function findShort(s) {
+  const words = s.split(" ");
+  const length = words.map((word) => word.length);
+  console.log(Math.min(...length));
+  // let minWord = words[0];
+  // for (let word of words) {
+  //   if (minWord.length > word.length) {
+  //     minWord = word;
+  //   }
+  // }
+  // return minWord.length;
 }
 
-const audi = new Car({ price: 35000 });
-console.log(audi.price); // 35000
-
-audi.price = 49000;
-console.log(audi.price); // 49000
-
-audi.price = 51000;
-console.log(audi.price); // 49000
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
